@@ -46,8 +46,8 @@ graph TD
     subgraph "Cluster 3: Auditoría"
         SALES -.->|Auditar Contenido| SENTINEL[AGENT_SENTINEL]
         OPS -.->|Escaneo de Seguridad| SECURITY[AGENT_SECURITY]
-        SENTINEL --|Aprobado| SALES
-        SENTINEL --|Rechazado| FIXER[Auto-Corrección]
+        SENTINEL -->|Aprobado| SALES
+        SENTINEL -->|Rechazado| FIXER["Auto-Corrección"]
         FIXER --> SALES
     end
 
@@ -67,16 +67,16 @@ flowchart LR
     Task([Tarea Entrante]) --> Router{Router de Complejidad}
     
     Router -- "Alto Razonamiento / Creativo" --> Cloud[IA en la Nube]
-    subgraph "Cloud Tier ($$)"
+    subgraph "Nivel Cloud ($$)"
         Cloud --> Gemini[Gemini 1.5 Pro]
         Cloud --> Groq[Groq Llama 3 70B]
     end
     
     Router -- "Rutina / Limpieza / Parsing" --> Local[Inferencia Local]
-    subgraph "Sovereign Tier ($0)"
+    subgraph "Nivel Soberano ($0)"
         Local --> Ollama[Servidor Ollama]
-        Ollama --> Llama3[Llama 3.1 8B]
-        Ollama --> DeepSeek[DeepSeek Coder]
+        Ollama --> Llama3["Llama 3.1 8B"]
+        Ollama --> DeepSeek["DeepSeek Coder"]
     end
     
     Gemini --> Result([Salida])
@@ -85,7 +85,7 @@ flowchart LR
 
 **Registro de Decisión Arquitectónica (ADR):**
 *   **Contexto:** Las tareas rutinarias (limpieza de PII, formateo JSON, correos simples) consumen el 80% del volumen de tokens.
-*   **Decision:** Enrutar todas las tareas de baja complejidad a una instancia local de Ollama en Docker.
+*   **Decisión:** Enrutar todas las tareas de baja complejidad a una instancia local de Ollama en Docker.
 *   **Resultado:** Reducción del costo operativo diario de ~$5.00 a ~$0.05.
 
 ---
@@ -111,7 +111,7 @@ graph LR
 
 ## 5. Escudo de Privacidad y Soberanía
 
-En la era del AI Act de la UE y el GDPR, "The Dude" implementa un **Middleware de Privacidad** que sanitiza los datos *before* it leaves the controlled environment.
+En la era del AI Act de la UE y el GDPR, "The Dude" implementa un **Middleware de Privacidad** que sanitiza los datos *antes* de que salgan del entorno controlado.
 
 ```mermaid
 sequenceDiagram
@@ -130,7 +130,7 @@ sequenceDiagram
 
 ---
 
-## 6. Technical Stack
+## 6. Stack Tecnológico
 
 *   **Orquestación:** Python (LangGraph), Node.js (Crypto/Utils).
 *   **Persistencia:** Supabase (Relacional), Redis (Estado en caliente / Caché Vectorial).
