@@ -13,6 +13,8 @@
 
 A diferencia de los wrappers de SaaS tradicionales, The Dude opera sobre una **Infraestructura Soberana**, priorizando la privacidad de los datos y una operación de costo marginal cero a través de inferencia local.
 
+> **Definición Técnica:** La plataforma implementa una arquitectura de **Sistemas Cognitivos Híbridos**. Utilizamos **Redes Neuronales de Inferencia** (LLMs locales/cloud) para el razonamiento, **Modelos de Embeddings** para la memoria semántica vectorial, y algoritmos de **Meta-Learning inspirados en Schmidhuber** (como LSTMs lógicos y optimización de gradientes de error) para que el sistema aprenda y se auto-corrija de forma autónoma.
+
 ### Pilares Arquitectónicos Clave
 1.  **Orquestación Multi-Agente**: 9 agentes especializados (Intel, Sales, Ops, Sentinel) comunicándose a través de un bus de eventos.
 2.  **Motor de Inferencia Híbrido**: Enrutamiento dinámico entre LLMs locales (Ollama) para tareas rutinarias y modelos en la nube (Gemini/Groq) para tareas de alto razonamiento.
